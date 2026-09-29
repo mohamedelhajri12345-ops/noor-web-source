@@ -1,4 +1,4 @@
-name: NOOR Native Android
+name: NOOR Native Android (V2)
 
 on:
   push:
@@ -45,13 +45,13 @@ jobs:
         run: npx expo-doctor
 
       - name: Generate native Android project
-        run: npx expo prebuild --platform android --no-install --non-interactive
+        run: npx expo prebuild --platform android --clean --no-install --non-interactive
 
       - name: Build debug APK
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          ./gradlew assembleDebug --no-daemon --stacktrace --warning-mode all
 
       - name: Verify APK exists
         run: test -f android/app/build/outputs/apk/debug/app-debug.apk
