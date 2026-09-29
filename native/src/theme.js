@@ -1,0 +1,2 @@
+export const colors={bg:'#07111f',surface:'#0d1928',surface2:'#101f31',gold:'#e8c766',goldLight:'#f6df8a',text:'#ffffff',muted:'#91a0b4',border:'rgba(232,199,102,0.14)',green:'#54c49b'};
+export const common={screen:{flex:1,backgroundColor:colors.bg},content:{padding:16,paddingBottom:100},title:{color:colors.goldLight,fontSize:22,fontWeight:'800',textAlign:'right'},card:{backgroundColor:colors.surface,borderWidth:1,borderColor:colors.border,borderRadius:20,padding:16}};

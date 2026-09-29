@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "NOOR",
+    "slug": "noor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "noor",
+    "splash": {
+      "backgroundColor": "#07111f"
+    },
+    "android": {
+      "package": "com.elhajri.noor",
+      "softwareKeyboardLayoutMode": "pan"
+    },
+    "ios": {
+      "bundleIdentifier": "com.elhajri.noor",
+      "supportsTablet": true
+    },
+    "plugins": [
+      "expo-router",
+      "expo-system-ui"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,2 @@
+import React from 'react'; import {View,Text} from 'react-native'; import {colors} from '../theme';
+export default function SectionTitle({children}){return <View style={{flexDirection:'row-reverse',alignItems:'center',gap:8,marginBottom:10}}><View style={{width:4,height:18,borderRadius:4,backgroundColor:colors.gold}}/><Text style={{color:colors.goldLight,fontSize:15,fontWeight:'800',textAlign:'right'}}>{children}</Text></View>}
