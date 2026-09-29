@@ -1,0 +1,38 @@
+name: NOOR Native Android
+
+on:
+  push:
+    paths:
+      - 'native/**'
+      - '.github/workflows/noor-native-android.yml'
+  workflow_dispatch:
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: native
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: native/package.json
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate Expo project
+        run: npx expo-doctor
+      - name: Generate native Android project
+        run: npx expo prebuild --platform android --no-install --non-interactive
+      - name: Build debug APK
+        run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: noor-native-debug-apk
+          path: native/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
